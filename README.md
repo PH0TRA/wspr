@@ -41,6 +41,12 @@ Usage:
 
 <B>only type 1 messages are supported. The AD9851 is limited to a 70 MHz max <B>.
 
+default pin use:
+W_CLK=18
+FQ_UD=23
+DATA=24
+RESET=25
+
 credits:
 original code: https://github.com/brainwagon/genwspr
 code compatible for the Raspberry Pi https://github.com/JamesP6000/WsprryPi
