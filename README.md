@@ -1,45 +1,36 @@
 # wspr
 Python 3 script using an AD9851 for WSPR mode
 
-Usage mainly identical to the WsprryPi Raspberry Pi script https://github.com/JamesP6000/WsprryPi
+Usage mainly identical to the WsprryPi Raspberry Pi script https://github.com/JamesP6000/WsprryPi.
+However the AD9851 generates a much cleaner signal than the square wave from the Raspberry Pi.
+
 
 
 Usage:
-    wspr [options] callsign locator tx_pwr_dBm f1 <f2> <f3> ...
+    python wspr.py [options] callsign locator tx_pwr_dBm f1 <f2> <f3> ...
       OR
-    wspr [options] --test-tone f
+    python wspr.py [options] --test-tone f
 
-  Options:
+  Options:<br>
     -h --help
-      Print out this help screen.
-    -p --ppm ppm
-      Known PPM correction to 19.2MHz RPi nominal crystal frequency.
-    -s --self-calibration
-      Check NTP before every transmission to obtain the PPM error of the
-      crystal (default setting!).
-    -f --free-running
-      Do not use NTP to correct frequency error of RPi crystal.
+      Print out this help screen.<br>
     -r --repeat
       Repeatedly, and in order, transmit on all the specified command line
-      freqs.
-    -x --terminate <n>
-      Terminate after n transmissions have been completed.
+      freqs.<br>
     -o --offset
       Add a random frequency offset to each transmission:
-        +/- 80 Hz for WSPR
-        +/- 8 Hz for WSPR-15
+        +/- 80 Hz for WSPR.<br>
     -t --test-tone freq
       Simply output a test tone at the specified frequency. Only used
-      for debugging and to verify calibration.
+      for debugging and to verify calibration.<br>
     -n --no-delay
       Transmit immediately, do not wait for a WSPR TX window. Used
-      for testing only.
+      for testing only.<br>
 
   Frequencies can be specified either as an absolute TX carrier frequency, or
   using one of the following strings. If a string is used, the transmission
-  will happen in the middle of the WSPR region of the selected band.
-    LF LF-15 MF MF-15 160m 160m-15 80m 60m 40m 30m 20m 17m 15m 12m 10m 6m 4m 2m
-  <B>-15 indicates the WSPR-15 region of band <B>.
+  will happen in the middle of the WSPR region of the selected band: 
+    LF MF 160m 80m 60m 40m 30m 20m 17m 15m 12m 10m 6m 4m 2m
 
   Transmission gaps can be created by specifying a TX frequency of 0
 
@@ -47,6 +38,8 @@ Usage:
   in the appropriate fields of the WSPR message. Normally, tx_power_dBm should
   be 10, representing the signal power coming out of the Pi. Set this value
   appropriately if you are using an external amplifier.
+
+<B>only type 1 messages are supported. The AD9851 is limited to a 70 MHz max <B>.
 
 credits:
 original code: https://github.com/brainwagon/genwspr
