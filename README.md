@@ -30,7 +30,7 @@ Usage:
   Frequencies can be specified either as an absolute TX carrier frequency, or
   using one of the following strings. If a string is used, the transmission
   will happen in the middle of the WSPR region of the selected band: 
-    LF MF 160m 80m 60m 40m 30m 20m 17m 15m 12m 10m 6m 4m 2m
+    2190m 630m 160m 80m 60m 40m 30m 20m 17m 15m 12m 10m 6m 4m 2m
 
   Transmission gaps can be created by specifying a TX frequency of 0
 
